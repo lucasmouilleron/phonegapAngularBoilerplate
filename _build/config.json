@@ -1,0 +1,20 @@
+{
+  "phonegapAndroidTarget":"android-19",
+  "phonegapiOSTarget":"iphone",
+  "sassDir":"../www/css",
+  "iconsDir":"../www/icons",
+  "jsDevDir": "../www/js",
+  "jsMainFile": "../www/js/main.js",
+  "imgSrcDir": "../www/img",
+  "jsMainName": "main",
+  "jsMinFile": "../www/js/scripts.min.js",
+  "cssDir":"../www/css",
+  "imgDir": "../www/img",
+  "fontsDir": "../www/fonts",
+  "jsDir": "../www/js",
+  "cleanFiles":["node_modules", ".sass-cache", "../www/js/libs/vendor", "../platforms"],
+  "copyFiles":{
+    "../www/js/libs/vendor/components-font-awesome/fonts/*":"../www/fonts/",
+    "../www/js/libs/vendor/requirejs/require.js":"../www/js/"
+  }
+}
