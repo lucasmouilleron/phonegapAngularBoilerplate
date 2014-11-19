@@ -39,10 +39,10 @@ module.exports = function(grunt) {
         }
       },
       runios: {
-        command: "phonegap run ios"
+        command: "phonegap emulate ios --target=\"<%=cfg.phonegapiOSTarget%>\""
       },
       runandroid: {
-        command: "phonegap run android"
+        command: "phonegap emulate android --target=\"<%=cfg.phonegapAndroidTarget%>\""
       }
     },
     compass: {
@@ -125,8 +125,8 @@ module.exports = function(grunt) {
   grunt.registerTask("watch:styles", "Compile sass files",["watch:sass"]);
   grunt.registerTask("compile:styles", "Watch and compile sass files",["compass:compile","autoprefixer"]);
   grunt.registerTask("build", "Build all (scripts + styles)",["install", "compile:styles"]);
-  grunt.registerTask("run:ios", "Run on iPhone",["build", "shell:runios"]);
-  grunt.registerTask("run:android", "Run on iOS",["build", "shell:runandroid"]);
+  grunt.registerTask("run:ios", "Run on iOS simulator",["build", "shell:runios"]);
+  grunt.registerTask("run:android", "Run on Android simulator",["build", "shell:runandroid"]);
 
   /////////////////////////////////////////////////////////////////////////
   grunt.task.registerMultiTask("copyFiles", function() {

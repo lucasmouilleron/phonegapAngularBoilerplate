@@ -1,6 +1,6 @@
 {
-  "phonegapAndroidTarget":"android-19",
-  "phonegapiOSTarget":"iphone",
+  "phonegapAndroidTarget":"avd_1",
+  "phonegapiOSTarget":"iPhone (Retina 4-inch)",
   "sassDir":"../www/css",
   "iconsDir":"../www/icons",
   "jsDevDir": "../www/js",
@@ -12,13 +12,15 @@
   "imgDir": "../www/img",
   "fontsDir": "../www/fonts",
   "jsDir": "../www/js",
-  "cleanFiles":["node_modules", ".sass-cache", "../www/js/libs/vendor", "../platforms"],
+  "cleanFiles":["node_modules", ".sass-cache", "../www/js/libs/vendor", "../platforms/","../plugins/"],
   "copyFiles":{
     "../www/js/libs/vendor/components-font-awesome/fonts/*":"../www/fonts/"
     },
     "installCommands":[
     "phonegap plugin add org.apache.cordova.device",
     "phonegap plugin add org.apache.cordova.contacts",
-    "phonegap plugin add org.apache.cordova.console"
+    "phonegap plugin add org.apache.cordova.console",
+    "phonegap plugin add org.apache.cordova.splashscreen",
+    "phonegap plugin add org.apache.cordova.statusbar"
     ]
   }

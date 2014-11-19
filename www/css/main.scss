@@ -71,3 +71,19 @@ html,body {
 .navbar-btn {
     margin-right:4px;
 }
+
+.navbar {
+    padding-top:15px;
+}
+
+.navbar-inverse .navbar-toggle {
+    border:none;
+}
+
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+    background-color: #222;
+}
+
+.navbar-toggle {
+    padding:9px 0;
+}
