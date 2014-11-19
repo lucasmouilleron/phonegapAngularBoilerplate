@@ -1,9 +1,12 @@
 module.exports = function(grunt) {
 
+  var cfg = grunt.file.readJSON("config.json");
+  var pkg = grunt.file.readJSON("package.json");
+
   /////////////////////////////////////////////////////////////////////////
   grunt.initConfig({
-    pkg: grunt.file.readJSON("package.json"),
-    cfg: grunt.file.readJSON("config.json"),
+    pkg: pkg,
+    cfg: cfg,
     webDir:"../",
     availabletasks: {
       tasks: {
@@ -25,21 +28,21 @@ module.exports = function(grunt) {
           return "bower cache clean && bower install";
         }
       },
+      installAdditional: {
+        command: function() {
+          if(cfg.installCommands) {
+            return cfg.installCommands.join('&&');
+          }
+          else {
+            return "";
+          }
+        }
+      },
       runios: {
         command: "phonegap run ios"
       },
       runandroid: {
         command: "phonegap run android"
-      }
-    },
-    requirejs: {
-      compile: {
-        options: {
-          baseUrl: "<%=cfg.jsDevDir%>",
-          mainConfigFile: "<%=cfg.jsMainFile%>",
-          name: "<%=cfg.jsMainName%>",
-          out: "<%=cfg.jsMinFile%>"
-        }
       }
     },
     compass: {
@@ -116,13 +119,11 @@ module.exports = function(grunt) {
   /////////////////////////////////////////////////////////////////////////
   grunt.registerTask("default", "These help instructions",["availabletasks"]);
   grunt.registerTask("cleanup", "Clean project",["clean:default"]);
-  grunt.registerTask("install", "Install the project",["shell:install", "copyFiles:main"]);
+  grunt.registerTask("install", "Install the project",["shell:install", "shell:installAdditional","copyFiles:main"]);
   grunt.registerTask("watch:scripts", "Watch and compile js files",["watch:js"]);
   grunt.registerTask("watch:all", "Watch all (scripts + styles)",["watch:everything"]);
   grunt.registerTask("watch:styles", "Compile sass files",["watch:sass"]);
-  //grunt.registerTask("compile:scripts", "Compile js files",["requirejs:compile"]);
   grunt.registerTask("compile:styles", "Watch and compile sass files",["compass:compile","autoprefixer"]);
-  //grunt.registerTask("build", "Build all (scripts + styles)",["install", "compile:styles","compile:scripts"]);
   grunt.registerTask("build", "Build all (scripts + styles)",["install", "compile:styles"]);
   grunt.registerTask("run:ios", "Run on iPhone",["build", "shell:runios"]);
   grunt.registerTask("run:android", "Run on iOS",["build", "shell:runandroid"]);
@@ -140,5 +141,4 @@ module.exports = function(grunt) {
       }
     }
   });
-
 };

@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////
 // App
 /////////////////////////////////////////////////////////////////////
-define(["angular", "filters/index", "services/index", "directives/index", "controllers/index", "angularRoute", "angularAnimate", "angularLoadBar", "angularGrowl", "angularDialog", "angularSweetAlert"], function (angular, filters, services, directives, controllers) {
+define(["angular", "filters/index", "services/index", "directives/index", "controllers/index", "fastClick","angularRoute", "angularAnimate", "angularLoadBar", "angularGrowl", "angularDialog", "angularSweetAlert"], function (angular, filters, services, directives, controllers, fastClick) {
 
 /////////////////////////////////////////////////////////////////////
 var app = angular.module("app", ["app.filters","app.services","app.directives","app.controllers", "ngRoute", "ngAnimate", "angular-loading-bar", "angular-growl", "ngDialog","oitozero.ngSweetAlert"]);
@@ -22,13 +22,15 @@ app.config(["$locationProvider", function($location) {
 /////////////////////////////////////////////////////////////////////
 app.run(["$rootScope", "$timeout", "$window", "Device", function ($rootScope, $timeout, $window, Device) {
 
+    FastClick.attach(document.body);
+    
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
-        Device.set($window.device);
+        Device.init($window.device, $window.navigator);
     }
 
     $rootScope.$on('$routeChangeSuccess', function () {
-        $timeout(function () {JSON.stringify(device)
+        $timeout(function () {
             $window.scrollTo(0,0);
         }, 500);
     });

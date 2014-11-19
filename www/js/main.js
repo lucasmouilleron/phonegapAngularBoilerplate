@@ -20,6 +20,7 @@ require.config({
         "angularSweetAlert": "libs/vendor/angular-sweetalert/SweetAlert",
         "SweetAlert": "libs/vendor/sweetalert/lib/sweet-alert",
         "text": "libs/vendor/requirejs-text/text",
+        "fastClick":"libs/vendor/fastclick/lib/fastclick",
         "domReady": "libs/vendor/requirejs-domready/domReady",
     },
     shim: {
@@ -41,7 +42,7 @@ require.config({
 // RequireJs entry point
 /////////////////////////////////////////////////////////////////////
 require(["angular", "domReady", "app", "routes", "bootstrap"], function (angular, domReady) {
-
+    
     domReady(function() {
         angular.bootstrap(document, ["app"]);
     });

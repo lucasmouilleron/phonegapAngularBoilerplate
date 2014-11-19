@@ -1,0 +1,12 @@
+<h1>Infos</h1>
+<p class="well">{{device}}</p>
+
+<h1>Contacts</h1>
+<div class="contacts">
+    <div class="contact" ng-repeat="contact in contacts">
+        <h2>{{contact.name.givenName}}</h2>
+        <div class="contact" ng-repeat="email in contact.emails">
+            {{email.value}}<br/>
+        </div>
+    </div>
+</div>

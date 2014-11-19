@@ -12,13 +12,19 @@ define(["app"], function(app) {
 		});
 
 		/////////////////////////////////////////////////////////////////////
+		$routeProvider.when("/device", {
+			templateUrl: "js/views/device.html",
+			controller: "deviceController"
+		});
+
+		/////////////////////////////////////////////////////////////////////
 		$routeProvider.when("/github/:anId", {
 			templateUrl: "js/views/github.html",
 			controller: "githubController"
 		});
 
 		/////////////////////////////////////////////////////////////////////
-		$routeProvider.otherwise({redirectTo: "/reddits"});
+		$routeProvider.otherwise({redirectTo: "/device"});
 		
 	}]);
 

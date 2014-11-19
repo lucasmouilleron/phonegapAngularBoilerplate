@@ -4,8 +4,8 @@
 define(["./module"], function (controllers) {
 
     controllers.controller("redditsController", ["$scope", "$q","Reddits", function ($scope, $q, Reddits) {
+        
         var next = 0;
-        var promises = [];
         $scope.theReddits = [];
         $scope.loadMore = function() {
             return Reddits.from(next).then(function(redditsResponse) {
@@ -15,12 +15,8 @@ define(["./module"], function (controllers) {
                 }
             });
         };
-        var promise = $scope.loadMore();
-        promises.push(promise);
-        
-        $q.all(promises).then(function() {
-            $scope.$parent.status = "ready";
-        });
+        $scope.loadMore();
+
     }]);
 
 });

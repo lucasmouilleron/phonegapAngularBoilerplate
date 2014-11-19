@@ -34,7 +34,7 @@ Run
 Plugins
 -------
 - http://docs.phonegap.com/en/3.5.0/cordova_plugins_pluginapis.md.html#Plugin%20APIs
-- `phonegap plugin add org.apache.cordova.device`
+- Plugins are installed from `_build/config.json->installCommands`
 
 Miscs
 -----
@@ -42,5 +42,6 @@ Miscs
 
 Todo
 ----
-- More plugins (camera, contacts, etc.)
+- More plugins (camera, etc.)
 - Specifi target (iPhone5, Android version)
+- Custom splash screen

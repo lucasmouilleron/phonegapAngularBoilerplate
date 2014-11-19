@@ -14,7 +14,11 @@
   "jsDir": "../www/js",
   "cleanFiles":["node_modules", ".sass-cache", "../www/js/libs/vendor", "../platforms"],
   "copyFiles":{
-    "../www/js/libs/vendor/components-font-awesome/fonts/*":"../www/fonts/",
-    "../www/js/libs/vendor/requirejs/require.js":"../www/js/"
+    "../www/js/libs/vendor/components-font-awesome/fonts/*":"../www/fonts/"
+    },
+    "installCommands":[
+    "phonegap plugin add org.apache.cordova.device",
+    "phonegap plugin add org.apache.cordova.contacts",
+    "phonegap plugin add org.apache.cordova.console"
+    ]
   }
-}

@@ -3,17 +3,13 @@
 /////////////////////////////////////////////////////////////////////
 define(["./module"], function (controllers) {
 
-    controllers.controller("githubController", ["$scope","$q","$routeParams", "Repositories", function ($scope, $q, $routeParams, Repositories) {
-        var promises = [];
+    controllers.controller("githubController", ["$scope","$q","$routeParams", "Github", function ($scope, $q, $routeParams, Github) {
+        
         $scope.githubUser = $routeParams.anId;
-        var promise = Repositories.all($scope.githubUser).then(function(repos) {
+        Github.all($scope.githubUser).then(function(repos) {
             $scope.theRepos = repos;
         });
-        promises.push(promise);
         
-        $q.all(promises).then(function() {
-            $scope.$parent.status = "ready";
-        });
     }]);
 
 });
