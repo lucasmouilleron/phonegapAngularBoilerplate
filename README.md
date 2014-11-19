@@ -15,7 +15,7 @@ Install
 - `cd _build && npm install`
 - iOS : 
     - `npm install -g ios-deploy && npm install -g ios-sim`
-    - `phonegap run ios`
+    - test : `phonegap  ios`
 - Android : 
     - Download the Android SDK : https://developer.android.com/sdk
     - Edit path : 
@@ -24,7 +24,12 @@ Install
     - Launch android sdk manager : `android`
     - Install packages (SDK + images)
     - Tools -> Manage AVDs and create a device (make sure the SDK is )
-    - `phonegap run android`
+    - test : `phonegap run android`
+
+Run
+---
+- `cd _build && grunt run:ios`
+- `cd _build && grunt run:android`
 
 Plugins
 -------
@@ -34,3 +39,8 @@ Plugins
 Miscs
 -----
 - scaffholder : `phonegap create . com.lucasmouilleron.phonegapAngularBoilerplate phonegapAngularBoilerplate`
+
+Todo
+----
+- More plugins (camera, contacts, etc.)
+- Specifi target (iPhone5, Android version)

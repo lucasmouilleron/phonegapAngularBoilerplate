@@ -7,13 +7,14 @@ define(["./module", "tools"], function (services, tools) {
     services.value("version", "0.1");
     
     /////////////////////////////////////////////////////////////////////
-    services.factory("Device", [function() {
+    services.factory("Device", ["growl", function(growl) {
         var device = {};
         return {
             set: function(_device) {
                 device = _device;
             },
             get: function() {
+                growl.info("Device get : "+JSON.stringify(device));
                 return device;
             }
         }
