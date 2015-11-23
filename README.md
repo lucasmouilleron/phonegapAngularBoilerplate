@@ -1,21 +1,21 @@
-phonegapAngularBoilerplate
-==========================
+phonegapBoileplate
+==================
+
+An basic phonegap boilerplate.
+
+![Screenshot](http://grabs.lucasmouilleron.com/Screen%20Shot%202015-11-23%20at%2015.09.09.png)
 
 Install requirements
 --------------------
 - Install NodeJS : http://nodejs.org/download
 - `sudo npm install -g phonegap`
-- `sudo npm install bower -g`
 - `sudo npm install grunt -g`
-- `sudo gem install sass`
-- `sudo gem install --pre sass-css-importer`
 
 Install
 -------
-- `cd _build && npm install`
 - iOS : 
-    - `npm install -g ios-deploy && npm install -g ios-sim`
-    - test : `phonegap  ios`
+    - `sudo npm install -g ios-deploy && sudo npm install -g ios-sim`
+    - test : `phonegap run ios`
 - Android : 
     - Download the Android SDK : https://developer.android.com/sdk
     - Edit path : 
@@ -26,6 +26,7 @@ Install
     - Tools -> Manage AVDs and create a device
     - test : `phonegap run android`
 - Plugins are installed from `_build/config.json->installCommands`
+- `cd _build && npm install && grunt install`
 
 Run
 ---

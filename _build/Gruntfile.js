@@ -13,7 +13,7 @@ module.exports = function(grunt) {
         options: {
           sort: true,
           filter: "include",
-          tasks: ["default","install", "cleanup","compile:images","watch","build","watch:scripts", "compile:scripts", "compile:styles", "watch:styles","run:ios","run:android"]
+          tasks: ["default","install", "cleanup","run:ios","run:android"]
         }
       }
     },
@@ -39,10 +39,10 @@ module.exports = function(grunt) {
         }
       },
       runios: {
-        command: "phonegap emulate ios --target=\"<%=cfg.phonegapiOSTarget%>\""
+        command: "phonegap run ios --target=\"<%=cfg.phonegapiOSTarget%>\""
       },
       runandroid: {
-        command: "phonegap emulate android --target=\"<%=cfg.phonegapAndroidTarget%>\""
+        command: "phonegap run android --target=\"<%=cfg.phonegapAndroidTarget%>\""
       }
     },
     compass: {
@@ -120,11 +120,6 @@ module.exports = function(grunt) {
   grunt.registerTask("default", "These help instructions",["availabletasks"]);
   grunt.registerTask("cleanup", "Clean project",["clean:default"]);
   grunt.registerTask("install", "Install the project",["shell:install", "shell:installAdditional","copyFiles:main"]);
-  grunt.registerTask("watch:scripts", "Watch and compile js files",["watch:js"]);
-  grunt.registerTask("watch:all", "Watch all (scripts + styles)",["watch:everything"]);
-  grunt.registerTask("watch:styles", "Compile sass files",["watch:sass"]);
-  grunt.registerTask("compile:styles", "Watch and compile sass files",["compass:compile","autoprefixer"]);
-  grunt.registerTask("build", "Build all (scripts + styles)",["install", "compile:styles"]);
   grunt.registerTask("run:ios", "Run on iOS simulator",["build", "shell:runios"]);
   grunt.registerTask("run:android", "Run on Android simulator",["build", "shell:runandroid"]);
 

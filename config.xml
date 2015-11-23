@@ -16,7 +16,7 @@
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
     <preference name="StatusBarOverlaysWebView" value="true" />
-    <preference name="StatusBarBackgroundColor" value="#000000"/>
+    <preference name="StatusBarBackgroundColor" value="#000000" />
     <preference name="StatusBarStyle" value="lightcontent" />
     <preference name="AutoHideSplashScreen" value="true" />
     <preference name="SplashScreen" value="splash" />
@@ -31,7 +31,7 @@
     <icon gap:platform="ios" height="114" src="resources/icon/ios/icon-57-2x.png" width="114" />
     <icon gap:platform="ios" height="144" src="resources/icon/ios/icon-72-2x.png" width="144" />
     <gap:splash src="resources/screen/ios/screen-ipad-portrait.png" />
-    <splash src="resources/screen/ios/screen-ipad-portrait.png"/>
+    <splash src="resources/screen/ios/screen-ipad-portrait.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="resources/screen/android/screen-ldpi-portrait.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="resources/screen/android/screen-mdpi-portrait.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="resources/screen/android/screen-hdpi-portrait.png" />
@@ -42,4 +42,5 @@
     <gap:splash gap:platform="ios" height="1024" src="resources/screen/ios/screen-ipad-portrait.png" width="768" />
     <gap:splash gap:platform="ios" height="768" src="resources/screen/ios/screen-ipad-landscape.png" width="1024" />
     <access origin="*" />
+    <engine name="ios" spec="~3.9.2" />
 </widget>
